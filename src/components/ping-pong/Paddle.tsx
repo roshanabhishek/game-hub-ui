@@ -1,10 +1,11 @@
+import { forwardRef } from "react";
+
 type PaddleProps = {
     x: number;
-    y: number;
 }
 
-const Paddle = ({ x, y }: PaddleProps) => (
-<rect x={x} y={y} width="10" height="100" fill="white" />
-);
+const Paddle = forwardRef<SVGRectElement, PaddleProps>((props, inputRef) => (
+<rect x={props.x} width="10" height="100" fill="white" ref={inputRef} />
+));
 
 export default Paddle
